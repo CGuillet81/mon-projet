@@ -1,0 +1,35 @@
+{% extends 'front.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML en dehors des block twig #}
+
+{% block titre %} Liste - {{ parent() }} {% endblock %}
+{# avec parent je recupere le contenu du bloque parent #}
+
+{% block central%}
+    <h1>Liste</h1>
+
+    <div class="row">
+      <div class="offset-1 col 3">
+
+    <table class="table table-striped">
+        <tbody>
+    {% for w in wishliste %}
+        <tr>
+            <td>
+                {{ w.id }}
+            </td>
+            <td>
+                {{ w.title }} /  {{ w.description }} -  {{w.author}} -  {{ w.category.name }}
+            </td>
+            <td>
+                <a href="{{ path('wish_enlever', { id:w.id}) }}" class="btn btn-danger">Enlever</a>
+            </td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+          
+    </div>
+    </div>
+
+{% endblock %}

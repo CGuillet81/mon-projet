@@ -1,0 +1,6 @@
+
+* {font-family: 'Hind', sans-serif;}
+h1{ color: rgb(37, 207, 219);}
+.logoCouleur {
+    filter: invert(99%) sepia(2%) saturate(2081%) hue-rotate(248deg) brightness(124%) contrast(100%);
+    }

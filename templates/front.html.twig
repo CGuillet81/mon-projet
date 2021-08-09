@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
+    <title>{% block titre %} Mon site {% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+    <link rel="icon" type="image/pgn" href="{{ asset('img/favicon.png') }}"/>
+
+
+
+</head>
+<body>
+    <header>
+    
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+    <img class="logoCouleur" src="{{ asset('img/logo.svg') }}" width="30">
+    <a class="navbar-brand" href="{{ path('accueil')}}"> Mon site </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% set chemin = app.request.get('_route') %}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link {% if chemin == 'accueil' %} active {% endif %}" aria-current="page" href="{{ path('accueil')}}">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link {% if chemin == 'list' %} active {% endif %}" aria-current="page" href="{{ path('liste')}}">Liste</a></li>
+                <li class="nav-item"><a class="nav-link {% if chemin == 'ajouter' %} active {% endif %}" aria-current="page" href="{{ path('ajouter')}}">Ajouter</a></li>
+                <li class="nav-item"><a class="nav-link {% if chemin == 'contact' %} active {% endif %}" aria-current="page" href="{{ path('contact')}}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link {% if chemin == 'about' %} active {% endif %}" aria-current="page" href="{{ path('about')}}">About</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+ 
+     
+     
+    </header>   
+
+    {% block central %} Titre ICI {% endblock %}
+
+
+    <section class="container">
+        Mon site de souhaits
+        <br><br><br><br>
+    </section>
+    <!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white"> ©Bucket-List / {{"now"|date('Y')}}
+    <img src="{{ asset('img/favicon.png') }}"></p></div>
+     
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
